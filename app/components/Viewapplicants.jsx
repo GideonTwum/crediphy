@@ -61,13 +61,41 @@ const Viewapplicants = () => {
 
   // Function to handle assessment
   const handleAssess = (record) => {
+    // Generate a random risk score between 0-100 for demo purposes
+    const riskScore = Math.floor(Math.random() * 100);
+    
+    // Determine AI decision based on risk score
+    let aiDecision;
+    if (riskScore >= 80) {
+      aiDecision = 'Pre-approved';
+    } else if (riskScore >= 60) {
+      aiDecision = 'Needs Review';
+    } else {
+      aiDecision = 'Rejected';
+    }
+
+    // Create a new loan application for monitoring
+    const newLoanApplication = {
+      key: record.key,
+      name: record.name,
+      amount: record.amount,
+      type: record.type,
+      aiDecision: aiDecision,
+      riskScore: riskScore,
+      status: 'Awaiting Approval',
+      submissionDate: record.submissionDate,
+    };
+
     // Here you would typically make an API call to add the application to LoanMonitoring
-    // For now, we'll just update the status
+    // For now, we'll just update the status in the current table
     setApplications(
       applications.map((app) =>
         app.key === record.key ? { ...app, status: 'Assessed' } : app
       )
     );
+
+    // You would typically make an API call here to add newLoanApplication to the LoanMonitoring table
+    console.log('Adding to loan monitoring:', newLoanApplication);
   };
 
   // Table columns configuration
