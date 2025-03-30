@@ -17,7 +17,7 @@ const About = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className='text-3xl md:text-4xl font-bold text-[dodgerblue]'
             >
-                About Us
+                About Crediphy
             </motion.h1>
             <motion.p 
                 initial={{ opacity: 0 }}
@@ -25,12 +25,21 @@ const About = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className='text-gray-700 leading-relaxed text-sm md:text-base'
             >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates 
-                debitis vel eveniet dicta at odio suscipit voluptas quo mollitia a, 
-                harum illo eligendi tempora, excepturi ducimus totam libero facere 
-                magni aliquid similique, minus accusamus? Reiciendis, mollitia? 
-                Error impedit, eveniet eligendi distinctio cupiditate, facilis suscipit 
-                alias nesciunt eius laboriosam, adipisci similique.
+                Welcome to Crediphy, your trusted B2B partner in intelligent credit assessment and risk management. 
+                We leverage advanced AI technology to help businesses make data-driven decisions when evaluating 
+                potential borrowers. Our platform provides comprehensive creditworthiness analysis, risk scoring, 
+                and predictive insights to ensure your business extends credit with confidence.
+            </motion.p>
+            <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className='text-gray-700 leading-relaxed text-sm md:text-base'
+            >
+                With Crediphy, you can streamline your credit assessment process, reduce default risks, 
+                and optimize your lending decisions. Our sophisticated algorithms analyze multiple data points 
+                to provide accurate creditworthiness evaluations, helping you identify reliable business partners 
+                while protecting your company's financial interests.
             </motion.p>
         </motion.div>
         <motion.div 

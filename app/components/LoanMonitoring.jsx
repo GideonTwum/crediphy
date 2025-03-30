@@ -37,7 +37,7 @@ const LoanMonitoring = () => {
   const [loanApplications, setLoanApplications] = useState([
     {
       key: '1',
-      name: 'John Doe',
+      name: 'Kwame Mensah',
       amount: 25000,
       type: 'Personal',
       aiDecision: 'Pre-approved',
@@ -47,7 +47,7 @@ const LoanMonitoring = () => {
     },
     {
       key: '2',
-      name: 'Sarah Johnson',
+      name: 'Abena Osei',
       amount: 350000,
       type: 'Mortgage',
       aiDecision: 'Needs Review',
@@ -57,7 +57,7 @@ const LoanMonitoring = () => {
     },
     {
       key: '3',
-      name: 'Michael Chen',
+      name: 'Kofi Addo',
       amount: 15000,
       type: 'Auto',
       aiDecision: 'Pre-approved',
@@ -67,7 +67,7 @@ const LoanMonitoring = () => {
     },
     {
       key: '4',
-      name: 'Emily Wilson',
+      name: 'Efua Asante',
       amount: 50000,
       type: 'Business',
       aiDecision: 'Rejected',
@@ -77,7 +77,7 @@ const LoanMonitoring = () => {
     },
     {
       key: '5',
-      name: 'David Garcia',
+      name: 'Yaw Owusu',
       amount: 10000,
       type: 'Personal',
       aiDecision: 'Pre-approved',

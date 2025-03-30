@@ -24,7 +24,7 @@ const Nav = () => {
           <a onClick={() => toDevelopers()} className='hover:text-blue-500 text-sm transition-colors cursor-pointer' href="#developers">Developers</a>
         </div>
         <div className="flex items-center">
-          <button onClick={() => toLogin()} className='bg-blue-500 hover:bg-blue-600 transition-colors cursor-pointer text-white px-6 py-2 rounded-md'>Join Us</button>
+          <button onClick={() => toLogin()} className='bg-blue-500 hover:bg-blue-600 transition-colors cursor-pointer text-white px-6 py-2 rounded-md'>Get Started</button>
         </div>
     </div>
   )

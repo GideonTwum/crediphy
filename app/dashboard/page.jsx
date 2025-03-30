@@ -23,7 +23,7 @@ const MenuItem = ({ icon: Icon, label, isActive, onClick }) => (
 const UserProfile = () => (
   <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-sm">
     <div className="flex flex-col items-end">
-      <h2 className="text-lg font-semibold text-gray-800">Achieve by Petra</h2>
+      <h2 className="text-lg font-semibold text-gray-800">Adwoa Mensah</h2>
       <p className="text-sm text-gray-600">Welcome back, Admin</p>
     </div>
     <div className="w-10 h-10 rounded-full bg-[dodgerblue]/10 flex items-center justify-center">
