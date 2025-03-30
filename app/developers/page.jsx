@@ -1,7 +1,56 @@
 'use client'
 import React, { useState } from 'react';
-import { FaCode, FaKey, FaServer, FaShieldAlt, FaBook, FaDownload } from 'react-icons/fa';
+import { FaCode, FaKey, FaServer, FaShieldAlt, FaBook, FaDownload, FaCopy, FaCheck } from 'react-icons/fa';
 import Nav from '../components/Nav';
+
+// CopyButton Component
+const CopyButton = ({ text, className = "", isVisible = false }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className={`absolute top-2 right-2 p-2 rounded-lg transition-all duration-200 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      } ${className}`}
+      title="Click to copy"
+    >
+      {copied ? (
+        <FaCheck className="text-green-500" />
+      ) : (
+        <FaCopy className="text-gray-400 hover:text-white" />
+      )}
+    </button>
+  );
+};
+
+// CodeBlock Component
+const CodeBlock = ({ code, language = "text", className = "" }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div 
+      className="relative group"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <CopyButton text={code} isVisible={isHovered} />
+      <pre className={`bg-gray-800 text-white p-4 rounded-lg font-mono text-sm overflow-x-auto ${className}`}>
+        {code}
+      </pre>
+    </div>
+  );
+};
 
 const DevelopersPage = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -35,16 +84,22 @@ const DevelopersPage = () => {
         <div className="space-y-6">
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="font-semibold text-gray-800 mb-4">Request API Key</h3>
-            <div className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm">
-              <p>POST https://api.crediphy.com/auth/request-key</p>
+            <div className="relative">
+              <CopyButton text="POST https://api.crediphy.com/auth/request-key" />
+              <div className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm">
+                <p>POST https://api.crediphy.com/auth/request-key</p>
+              </div>
             </div>
             <p className="mt-4 text-gray-600">Send your institution ID and authentication credentials to obtain an API key.</p>
           </div>
           
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="font-semibold text-gray-800 mb-4">Using API Key</h3>
-            <div className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm">
-              <p>Authorization: Bearer YOUR_API_KEY</p>
+            <div className="relative">
+              <CopyButton text="Authorization: Bearer YOUR_API_KEY" />
+              <div className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm">
+                <p>Authorization: Bearer YOUR_API_KEY</p>
+              </div>
             </div>
             <p className="mt-4 text-gray-600">Include the API key in the Authorization header of every request.</p>
           </div>
@@ -59,14 +114,17 @@ const DevelopersPage = () => {
           {/* Risk Assessment API */}
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="font-semibold text-gray-800 mb-4">Risk Assessment API</h3>
-            <div className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm mb-4">
-              <p>POST https://api.crediphy.com/assess-risk</p>
+            <div className="relative">
+              <CopyButton text="POST https://api.crediphy.com/assess-risk" />
+              <div className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm mb-4">
+                <p>POST https://api.crediphy.com/assess-risk</p>
+              </div>
             </div>
             <div className="space-y-4">
               <div>
                 <h4 className="font-medium text-gray-700 mb-2">Request Body</h4>
-                <pre className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm overflow-x-auto">
-                  {JSON.stringify({
+                <CodeBlock
+                  code={JSON.stringify({
                     name: "John Doe",
                     dob: "1990-05-15",
                     income: 45000,
@@ -77,18 +135,18 @@ const DevelopersPage = () => {
                       repayment_history: "good"
                     }
                   }, null, 2)}
-                </pre>
+                />
               </div>
               <div>
                 <h4 className="font-medium text-gray-700 mb-2">Response Example</h4>
-                <pre className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm overflow-x-auto">
-                  {JSON.stringify({
+                <CodeBlock
+                  code={JSON.stringify({
                     credit_score: 720,
                     risk_level: "low",
                     approval_recommendation: "Approved",
                     explanation: "Borrower has a strong repayment history and stable income."
                   }, null, 2)}
-                </pre>
+                />
               </div>
             </div>
           </div>
@@ -96,19 +154,22 @@ const DevelopersPage = () => {
           {/* Verification API */}
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="font-semibold text-gray-800 mb-4">Verification API</h3>
-            <div className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm mb-4">
-              <p>POST https://api.crediphy.com/verify</p>
+            <div className="relative">
+              <CopyButton text="POST https://api.crediphy.com/verify" />
+              <div className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm mb-4">
+                <p>POST https://api.crediphy.com/verify</p>
+              </div>
             </div>
             <div className="space-y-4">
               <div>
                 <h4 className="font-medium text-gray-700 mb-2">Request Body</h4>
-                <pre className="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm overflow-x-auto">
-                  {JSON.stringify({
+                <CodeBlock
+                  code={JSON.stringify({
                     id_number: "GH12345678",
                     bank_statement: "base64_encoded_file",
                     employment_certificate: "base64_encoded_file"
                   }, null, 2)}
-                </pre>
+                />
               </div>
             </div>
           </div>
@@ -141,22 +202,31 @@ const DevelopersPage = () => {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="font-semibold text-gray-800 mb-4">Available SDKs</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-4 rounded-lg shadow">
+              <div className="bg-white p-4 rounded-lg shadow relative">
                 <h4 className="font-medium text-gray-800 mb-2">Node.js SDK</h4>
-                <div className="bg-gray-800 text-white p-3 rounded font-mono text-sm">
-                  npm install crediphy-sdk
+                <div className="relative">
+                  <CopyButton text="npm install crediphy-sdk" />
+                  <div className="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                    npm install crediphy-sdk
+                  </div>
                 </div>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow">
+              <div className="bg-white p-4 rounded-lg shadow relative">
                 <h4 className="font-medium text-gray-800 mb-2">Python SDK</h4>
-                <div className="bg-gray-800 text-white p-3 rounded font-mono text-sm">
-                  pip install crediphy-sdk
+                <div className="relative">
+                  <CopyButton text="pip install crediphy-sdk" />
+                  <div className="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                    pip install crediphy-sdk
+                  </div>
                 </div>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow">
+              <div className="bg-white p-4 rounded-lg shadow relative">
                 <h4 className="font-medium text-gray-800 mb-2">Java SDK</h4>
-                <div className="bg-gray-800 text-white p-3 rounded font-mono text-sm">
-                  mvn install crediphy-sdk
+                <div className="relative">
+                  <CopyButton text="mvn install crediphy-sdk" />
+                  <div className="bg-gray-800 text-white p-3 rounded font-mono text-sm">
+                    mvn install crediphy-sdk
+                  </div>
                 </div>
               </div>
             </div>

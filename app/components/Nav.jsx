@@ -2,8 +2,8 @@
 import React from 'react'
 
 const Nav = () => {
-  const toDashboard = () => {
-    window.location.href = '/dashboard';
+  const toLogin = () => {
+    window.location.href = '/login';
   }
   const toDevelopers = () => {
     window.location.href = '/developers';
@@ -15,20 +15,17 @@ const Nav = () => {
             <h1 className='font-bold text-[#818181] text-xl'>Credi</h1>
             <h1 className='text-blue-500 font-bold text-xl'>phy</h1>
         </div>
-        <div className='flex items-center gap-16 '>
-          <a className='hover:text-blue-500 text-sm' href="#">Home</a>
-          <a className='hover:text-blue-500 text-sm' href="#about">About</a>
-          <a className='hover:text-blue-500 text-sm' href="#services">Services</a>
-          <a className='hover:text-blue-500 text-sm' href="#why">Why Us?</a>
-          <a className='hover:text-blue-500 text-sm' href="#pricing">Pricing</a>
-          <a onClick={() => toDevelopers()} className='hover:text-blue-500 text-sm' href="#developers">Developers</a>
+        <div className='flex items-center gap-8'>
+          <a className='hover:text-blue-500 text-sm transition-colors' href="#">Home</a>
+          <a className='hover:text-blue-500 text-sm transition-colors' href="#about">About</a>
+          <a className='hover:text-blue-500 text-sm transition-colors' href="#services">Services</a>
+          <a className='hover:text-blue-500 text-sm transition-colors' href="#why">Why Us?</a>
+          <a className='hover:text-blue-500 text-sm transition-colors' href="#pricing">Pricing</a>
+          <a onClick={() => toDevelopers()} className='hover:text-blue-500 text-sm transition-colors cursor-pointer' href="#developers">Developers</a>
         </div>
-        <div className="flex items-center gap-4">
-          <button  className='bg-blue-500 hover:bg-blue-500/50 cursor-pointer text-white px-4 py-2 rounded-md'>Signup</button>
+        <div className="flex items-center">
+          <button onClick={() => toLogin()} className='bg-blue-500 hover:bg-blue-600 transition-colors cursor-pointer text-white px-6 py-2 rounded-md'>Join Us</button>
         </div>
-        {/* <div className="flex items-center gap-4">
-          <button onClick={() => toDashboard()} className='bg-blue-500 hover:bg-blue-500/50 cursor-pointer text-white px-4 py-2 rounded-md'>Dashboard</button>
-        </div> */}
     </div>
   )
 }
