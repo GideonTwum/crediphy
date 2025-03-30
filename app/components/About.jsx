@@ -51,7 +51,7 @@ const About = () => {
             <motion.img 
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                src="/images/woman.jpg" 
+                src="/images/meetings.jpg" 
                 alt="about" 
                 className='w-full rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300' 
             />

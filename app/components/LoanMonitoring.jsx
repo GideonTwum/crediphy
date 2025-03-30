@@ -151,7 +151,7 @@ const LoanMonitoring = () => {
       title: 'Loan Amount',
       dataIndex: 'amount',
       key: 'amount',
-      render: (amount) => `$${amount.toLocaleString()}`,
+      render: (amount) => `₵${amount.toLocaleString()}`,
       sorter: (a, b) => a.amount - b.amount,
     },
     {
@@ -430,7 +430,7 @@ const LoanMonitoring = () => {
         {selectedLoan && (
           <Descriptions bordered column={2}>
             <Descriptions.Item label="Applicant Name">{selectedLoan.name}</Descriptions.Item>
-            <Descriptions.Item label="Loan Amount">${selectedLoan.amount.toLocaleString()}</Descriptions.Item>
+            <Descriptions.Item label="Loan Amount">₵{selectedLoan.amount.toLocaleString()}</Descriptions.Item>
             <Descriptions.Item label="Loan Type">{selectedLoan.type}</Descriptions.Item>
             <Descriptions.Item label="Risk Score">
               <Tag color={selectedLoan.riskScore > 80 ? 'green' : selectedLoan.riskScore > 60 ? 'gold' : 'red'}>

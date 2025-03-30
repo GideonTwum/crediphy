@@ -110,7 +110,7 @@ const Viewapplicants = () => {
       title: 'Loan Amount',
       dataIndex: 'amount',
       key: 'amount',
-      render: (amount) => `$${amount.toLocaleString()}`,
+      render: (amount) => `₵${amount.toLocaleString()}`,
       sorter: (a, b) => a.amount - b.amount,
     },
     {
