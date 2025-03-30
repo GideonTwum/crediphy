@@ -5,6 +5,9 @@ const Nav = () => {
   const toDashboard = () => {
     window.location.href = '/dashboard';
   }
+  const toDevelopers = () => {
+    window.location.href = '/developers';
+  }
   return (
     <div className='flex items-center justify-between p-6 bg-white shadow-md fixed w-full z-10'>
         <div className='flex items-center'>
@@ -18,10 +21,14 @@ const Nav = () => {
           <a className='hover:text-blue-500 text-sm' href="#services">Services</a>
           <a className='hover:text-blue-500 text-sm' href="#why">Why Us?</a>
           <a className='hover:text-blue-500 text-sm' href="#pricing">Pricing</a>
+          <a onClick={() => toDevelopers()} className='hover:text-blue-500 text-sm' href="#developers">Developers</a>
         </div>
         <div className="flex items-center gap-4">
-          <button onClick={() => toDashboard()} className='bg-blue-500 hover:bg-blue-500/50 cursor-pointer text-white px-4 py-2 rounded-md'>Dashboard</button>
+          <button  className='bg-blue-500 hover:bg-blue-500/50 cursor-pointer text-white px-4 py-2 rounded-md'>Signup</button>
         </div>
+        {/* <div className="flex items-center gap-4">
+          <button onClick={() => toDashboard()} className='bg-blue-500 hover:bg-blue-500/50 cursor-pointer text-white px-4 py-2 rounded-md'>Dashboard</button>
+        </div> */}
     </div>
   )
 }

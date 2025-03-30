@@ -5,18 +5,18 @@ const Why = () => {
   const features = [
     {
       icon: <FaShieldAlt className="text-4xl text-white" />,
-      title: "Secure & Trusted",
-      description: "Your financial security is our top priority. We use industry-standard encryption and security measures to protect your data."
+      title: "Enterprise-Grade Security",
+      description: "Bank-level security protocols and compliance standards to protect sensitive financial data and transactions."
     },
     {
       icon: <FaBolt className="text-4xl text-white" />,
-      title: "Fast Processing",
-      description: "Get your loan approved in minutes, not days. Our streamlined process ensures quick disbursement of funds."
+      title: "Seamless Integration",
+      description: "Easy integration with your existing banking systems and workflows, minimizing disruption to operations."
     },
     {
       icon: <FaHandshake className="text-4xl text-white" />,
-      title: "Flexible Terms",
-      description: "We offer competitive rates and flexible repayment options tailored to your financial situation."
+      title: "Scalable Solutions",
+      description: "Flexible and scalable platform that grows with your institution's needs and customer base."
     }
   ]
 
@@ -24,9 +24,9 @@ const Why = () => {
     <div className='min-h-screen bg-white py-20' id='why'>
       <div className='container mx-auto px-4'>
         <div className='text-center mb-16'>
-          <h1 className='text-4xl font-bold text-gray-800 mb-4'>Why Choose Us?</h1>
+          <h1 className='text-4xl font-bold text-gray-800 mb-4'>Why Partner With Us?</h1>
           <p className='text-gray-600 text-lg max-w-2xl mx-auto'>
-            We provide the best loan experience with our customer-centric approach and innovative solutions.
+            Empowering financial institutions with cutting-edge technology solutions to enhance their lending operations and customer service.
           </p>
         </div>
         
